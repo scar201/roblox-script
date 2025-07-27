@@ -12,228 +12,386 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
+            position: relative;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 10;
         }
 
         .header {
             text-align: center;
             margin-bottom: 40px;
-            animation: fadeInDown 1s ease-out;
+            animation: slideInDown 1s ease-out;
         }
 
         .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255,215,0,0.8)); }
+            to { filter: drop-shadow(0 0 20px rgba(255,107,107,0.8)); }
         }
 
         .header p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             opacity: 0.9;
+            color: #e0e6ed;
         }
 
         .auth-section {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
             margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 500px;
+            margin: 0 auto 30px;
         }
 
         .main-content {
             display: none;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .welcome-message {
+            background: linear-gradient(45deg, #00c851, #00ff00);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 8px 25px rgba(0,200,81,0.3);
         }
 
         .input-section {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
             margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease-out 0.5s both;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: slideInLeft 1s ease-out 0.5s both;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
             color: #ffd700;
+            font-size: 1.1em;
         }
 
         input, textarea, select {
             width: 100%;
-            padding: 15px;
+            padding: 18px;
             border: none;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
             color: #fff;
             font-size: 16px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.4s ease;
         }
 
         input:focus, textarea:focus, select:focus {
             outline: none;
-            background: rgba(255,255,255,0.2);
-            box-shadow: 0 0 20px rgba(255,215,0,0.3);
-            transform: translateY(-2px);
+            background: rgba(255,255,255,0.3);
+            box-shadow: 0 0 25px rgba(255,215,0,0.5);
+            transform: translateY(-3px);
+            border-color: #ffd700;
         }
 
         input::placeholder, textarea::placeholder {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.8);
         }
 
         textarea {
-            height: 120px;
+            height: 150px;
             resize: vertical;
+            font-family: inherit;
         }
 
         .btn {
-            background: linear-gradient(45deg, #ff6b6b, #ffd700);
-            color: #fff;
+            background: linear-gradient(45deg, #ff6b6b, #ffd700, #4ecdc4);
+            color: #000;
             border: none;
-            padding: 15px 30px;
+            padding: 18px 40px;
             border-radius: 50px;
             cursor: pointer;
             font-size: 18px;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            width: 100%;
+            margin-top: 10px;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            filter: brightness(1.1);
         }
 
         .btn:active {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
         .output-section {
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease-out 0.7s both;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: slideInRight 1s ease-out 0.7s both;
+            margin-top: 30px;
         }
 
         .code-output {
-            background: #1a1a1a;
-            border-radius: 10px;
-            padding: 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 15px;
+            padding: 25px;
             margin-top: 20px;
-            font-family: 'Courier New', monospace;
+            font-family: 'Courier New', 'Consolas', monospace;
             font-size: 14px;
-            line-height: 1.5;
-            color: #00ff00;
-            border: 1px solid #333;
-            max-height: 400px;
+            line-height: 1.6;
+            color: #00ff41;
+            border: 2px solid #333;
+            max-height: 500px;
             overflow-y: auto;
             white-space: pre-wrap;
             word-wrap: break-word;
+            box-shadow: inset 0 0 20px rgba(0,255,65,0.1);
+            position: relative;
+        }
+
+        .code-output::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff41, #0ff, #00ff41);
+            border-radius: 15px 15px 0 0;
         }
 
         .loading {
             display: none;
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         .loading-spinner {
             border: 4px solid rgba(255,255,255,0.3);
             border-radius: 50%;
             border-top: 4px solid #ffd700;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
+            margin: 0 auto 15px;
+        }
+
+        .loading-text {
+            font-size: 1.1em;
+            color: #ffd700;
         }
 
         .error {
-            background: rgba(255,0,0,0.2);
-            border: 1px solid rgba(255,0,0,0.5);
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
+            background: linear-gradient(45deg, rgba(255,0,0,0.3), rgba(255,100,100,0.3));
+            border: 2px solid rgba(255,0,0,0.6);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
             color: #ffcccc;
+            font-weight: bold;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
         }
 
         .success {
-            background: rgba(0,255,0,0.2);
-            border: 1px solid rgba(0,255,0,0.5);
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
+            background: linear-gradient(45deg, rgba(0,255,0,0.3), rgba(100,255,100,0.3));
+            border: 2px solid rgba(0,255,0,0.6);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
             color: #ccffcc;
+            font-weight: bold;
+            animation: pulse 1s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
 
         .copy-btn {
-            background: linear-gradient(45deg, #00ff00, #32cd32);
+            background: linear-gradient(45deg, #00ff00, #32cd32, #00fa9a);
             color: #000;
             border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 15px 30px;
+            border-radius: 30px;
             cursor: pointer;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 15px;
             transition: all 0.3s ease;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0,255,0,0.3);
         }
 
         .copy-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,255,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,255,0,0.4);
+            filter: brightness(1.1);
         }
 
-        @keyframes fadeInDown {
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg); 
+                opacity: 1;
+            }
+        }
+
+        .protected-badge {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #ff0000, #ff4444);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes slideInDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translate3d(0, -100%, 0);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translate3d(0, 0, 0);
             }
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translate3d(0, 40px, 0);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translate3d(0, 0, 0);
             }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translate3d(-40px, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translate3d(40px, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes spin {
@@ -241,555 +399,332 @@
             100% { transform: rotate(360deg); }
         }
 
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .protected-badge {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: linear-gradient(45deg, #ff0000, #ff6b6b);
-            padding: 10px 15px;
-            border-radius: 25px;
-            font-size: 12px;
+        .script-counter {
+            background: rgba(255,215,0,0.2);
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .auth-section, .input-section, .output-section {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
+    <div class="floating-elements" id="floatingElements"></div>
     <div class="protected-badge">🔒 محمي - مخصص لـ scar201</div>
     
     <div class="container">
         <div class="header">
-            <h1>مولد سكربتات Roblox Studio</h1>
-            <p>أداة حصرية لتوليد سكربتات Roblox باستخدام الذكاء الاصطناعي</p>
+            <h1>🚀 مولد سكربتات Roblox Studio</h1>
+            <p>أداة حصرية متقدمة لتوليد سكربتات Roblox باستخدام الذكاء الاصطناعي</p>
         </div>
 
         <div class="auth-section" id="authSection">
-            <h2 style="text-align: center; margin-bottom: 20px; color: #ffd700;">تسجيل الدخول</h2>
+            <h2 style="text-align: center; margin-bottom: 25px; color: #ffd700; font-size: 1.8em;">🔐 تسجيل الدخول الآمن</h2>
             <div class="input-group">
-                <label for="username">اسم المستخدم:</label>
-                <input type="text" id="username" placeholder="أدخل اسم المستخدم">
+                <label for="username">👤 اسم المستخدم:</label>
+                <input type="text" id="username" placeholder="أدخل اسم المستخدم الخاص بك">
             </div>
             <div class="input-group">
-                <label for="password">كلمة المرور:</label>
+                <label for="password">🔑 كلمة المرور:</label>
                 <input type="password" id="password" placeholder="أدخل كلمة المرور">
             </div>
-            <button class="btn" id="loginBtn" onclick="authenticate()">دخول</button>
+            <button class="btn" id="loginBtn" onclick="authenticate()">🚀 دخول للنظام</button>
             <div id="authError"></div>
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 10px; font-size: 0.9em; text-align: center;">
+                <strong>للدخول استخدم:</strong><br>
+                المستخدم: <code>scar201</code><br>
+                كلمة المرور: <code>Scar123456</code>
+            </div>
         </div>
 
         <div class="main-content" id="mainContent">
+            <div class="welcome-message" id="welcomeMessage"></div>
+            
+            <div class="script-counter">
+                📊 عدد السكربتات المولدة: <span id="scriptCount">0</span>
+            </div>
+
             <div class="input-section">
-                <h2 style="color: #ffd700; margin-bottom: 20px;">طلب السكربت</h2>
+                <h2 style="color: #ffd700; margin-bottom: 25px; font-size: 1.8em;">⚡ طلب السكربت المخصص</h2>
                 
                 <div class="input-group">
-                    <label for="scriptType">نوع السكربت:</label>
+                    <label for="scriptType">🎯 نوع السكربت:</label>
                     <select id="scriptType">
-                        <option value="tool">أداة (Tool)</option>
-                        <option value="gui">واجهة المستخدم (GUI)</option>
-                        <option value="game_mechanic">آلية لعبة</option>
-                        <option value="animation">حركة/تحريك</option>
-                        <option value="sound">صوت وموسيقى</option>
-                        <option value="combat">قتال ومعارك</option>
-                        <option value="economy">نظام اقتصادي</option>
-                        <option value="other">أخرى</option>
+                        <option value="tool">🔧 أداة (Tool)</option>
+                        <option value="gui">🖥️ واجهة المستخدم (GUI)</option>
+                        <option value="game_mechanic">⚙️ آلية لعبة</option>
+                        <option value="animation">🎭 حركة/تحريك</option>
+                        <option value="sound">🎵 صوت وموسيقى</option>
+                        <option value="combat">⚔️ قتال ومعارك</option>
+                        <option value="economy">💰 نظام اقتصادي</option>
+                        <option value="teleport">🌀 انتقال فوري</option>
+                        <option value="admin">👑 أدوات إدارية</option>
+                        <option value="other">📝 أخرى</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label for="scriptDescription">وصف السكربت المطلوب:</label>
-                    <textarea id="scriptDescription" placeholder="اكتب وصفاً تفصيلياً للسكربت الذي تريده... مثال: أريد سكربت سيف ينور عند الضرب ويصدر صوت"></textarea>
+                    <label for="scriptDescription">📋 وصف السكربت المطلوب:</label>
+                    <textarea id="scriptDescription" placeholder="اكتب وصفاً تفصيلياً ودقيقاً للسكربت الذي تريده...
+
+مثال: أريد سكربت سيف سحري ينور باللون الأزرق عند الضرب، يصدر صوت رعد، ويسبب انفجار صغير عند إصابة العدو، مع إضافة تأثيرات بصرية للشرارات"></textarea>
                 </div>
 
                 <div class="input-group">
-                    <label for="complexity">مستوى التعقيد:</label>
+                    <label for="complexity">🎚️ مستوى التعقيد:</label>
                     <select id="complexity">
-                        <option value="simple">بسيط</option>
-                        <option value="medium">متوسط</option>
-                        <option value="advanced">متقدم</option>
-                        <option value="expert">خبير</option>
+                        <option value="simple">🟢 بسيط (مبتدئ)</option>
+                        <option value="medium">🟡 متوسط (متقدم)</option>
+                        <option value="advanced">🟠 متقدم (خبير)</option>
+                        <option value="expert">🔴 احترافي (ماستر)</option>
                     </select>
                 </div>
 
-                <button class="btn" onclick="generateScript()">توليد السكربت</button>
+                <button class="btn" onclick="generateScript()">✨ توليد السكربت بالذكاء الاصطناعي</button>
             </div>
 
             <div class="loading" id="loading">
                 <div class="loading-spinner"></div>
-                <p>جاري توليد السكربت... قد يستغرق بضع ثوان</p>
+                <div class="loading-text">🤖 الذكاء الاصطناعي يعمل على توليد السكربت...<br>قد يستغرق من 3-5 ثوان</div>
             </div>
 
             <div class="output-section" id="outputSection" style="display: none;">
-                <h2 style="color: #ffd700; margin-bottom: 20px;">السكربت المولد</h2>
-                <div id="scriptOutput"></div>
+                <h2 style="color: #ffd700; margin-bottom: 25px; font-size: 1.8em;">🎉 السكربت المولد</h2>
+                <div id="scriptInfo" style="margin-bottom: 20px; padding: 20px; background: rgba(255,215,0,0.1); border-radius: 15px;"></div>
                 <div class="code-output" id="codeOutput"></div>
-                <button class="copy-btn" onclick="copyScript()">نسخ السكربت</button>
+                <button class="copy-btn" onclick="copyScript()">📋 نسخ السكربت</button>
+                <button class="btn" onclick="generateAnother()" style="margin-top: 15px; background: linear-gradient(45deg, #9b59b6, #e74c3c);">🔄 توليد سكربت جديد</button>
             </div>
         </div>
     </div>
 
     <script>
-        // نظام التشفير والحماية
+        // إعدادات الحماية والأمان
         const AUTHORIZED_USER = 'scar201';
-        const ENCRYPTED_PASSWORD = btoa('MySecretPass123!'); // يمكنك تغيير كلمة المرور هنا
+        const AUTHORIZED_PASSWORD = 'Scar123456';
         
         let isAuthenticated = false;
         let currentScript = '';
+        let scriptCount = 0;
 
-        // إنشاء الجسيمات المتحركة
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                particlesContainer.appendChild(particle);
+        // إنشاء العناصر المتحركة
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            for (let i = 0; i < 30; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 6 + 's';
+                element.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                
+                // ألوان متنوعة
+                const colors = ['rgba(255,215,0,0.3)', 'rgba(255,107,107,0.3)', 'rgba(78,205,196,0.3)', 'rgba(155,89,182,0.3)'];
+                element.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                container.appendChild(element);
             }
         }
 
-        // نظام المصادقة
+        // نظام المصادقة المحسن
         function authenticate() {
-            const username = document.getElementById('username').value;
+            const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
             const authError = document.getElementById('authError');
 
-            if (username === AUTHORIZED_USER && btoa(password) === ENCRYPTED_PASSWORD) {
+            // تنظيف الرسائل السابقة
+            authError.innerHTML = '';
+
+            // التحقق من صحة البيانات
+            if (!username || !password) {
+                authError.innerHTML = '<div class="error">⚠️ يرجى إدخال اسم المستخدم وكلمة المرور</div>';
+                return;
+            }
+
+            if (username === AUTHORIZED_USER && password === AUTHORIZED_PASSWORD) {
                 isAuthenticated = true;
+                
+                // إخفاء نموذج تسجيل الدخول
                 document.getElementById('authSection').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
-                authError.innerHTML = '<div class="success">تم تسجيل الدخول بنجاح! مرحباً ' + username + '</div>';
+                
+                // رسالة ترحيب
+                document.getElementById('welcomeMessage').innerHTML = 
+                    `🎉 مرحباً بك ${username}! تم تسجيل الدخول بنجاح<br>
+                    🚀 يمكنك الآن استخدام مولد السكربتات المتقدم`;
+                
+                // تحديث عداد السكربتات
+                updateScriptCounter();
+                
             } else {
-                authError.innerHTML = '<div class="error">خطأ: اسم المستخدم أو كلمة المرور غير صحيحة</div>';
+                authError.innerHTML = '<div class="error">❌ خطأ: اسم المستخدم أو كلمة المرور غير صحيحة<br>تأكد من البيانات وحاول مرة أخرى</div>';
+                
+                // إضافة تأثير اهتزاز للحقول
+                document.getElementById('username').style.animation = 'shake 0.5s ease-in-out';
+                document.getElementById('password').style.animation = 'shake 0.5s ease-in-out';
+                
+                setTimeout(() => {
+                    document.getElementById('username').style.animation = '';
+                    document.getElementById('password').style.animation = '';
+                }, 500);
             }
         }
 
-        // مولد السكربتات
+        // تحديث عداد السكربتات
+        function updateScriptCounter() {
+            document.getElementById('scriptCount').textContent = scriptCount;
+        }
+
+        // مولد السكربتات المتطور
         function generateScript() {
             if (!isAuthenticated) {
-                alert('يجب تسجيل الدخول أولاً!');
+                alert('🔒 يجب تسجيل الدخول أولاً للوصول لهذه الخدمة!');
                 return;
             }
 
             const scriptType = document.getElementById('scriptType').value;
-            const description = document.getElementById('scriptDescription').value;
+            const description = document.getElementById('scriptDescription').value.trim();
             const complexity = document.getElementById('complexity').value;
 
-            if (!description.trim()) {
-                alert('يرجى إدخال وصف للسكربت المطلوب');
+            if (!description) {
+                alert('📝 يرجى إدخال وصف تفصيلي للسكربت المطلوب');
+                document.getElementById('scriptDescription').focus();
                 return;
             }
 
+            if (description.length < 10) {
+                alert('⚠️ الوصف قصير جداً، يرجى إضافة تفاصيل أكثر (على الأقل 10 أحرف)');
+                return;
+            }
+
+            // إظهار شاشة التحميل
             document.getElementById('loading').style.display = 'block';
             document.getElementById('outputSection').style.display = 'none';
 
-            // محاكاة توليد السكربت (في التطبيق الحقيقي، ستكون هناك استدعاءات API)
+            // محاكاة عملية التوليد بالذكاء الاصطناعي
+            const loadingTime = Math.random() * 3000 + 2000; // من 2 إلى 5 ثوان
+            
             setTimeout(() => {
-                const generatedScript = createRobloxScript(scriptType, description, complexity);
-                displayScript(generatedScript, description);
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('outputSection').style.display = 'block';
-            }, 3000);
+                try {
+                    const generatedScript = createAdvancedRobloxScript(scriptType, description, complexity);
+                    displayScript(generatedScript, scriptType, description, complexity);
+                    
+                    // زيادة العداد
+                    scriptCount++;
+                    updateScriptCounter();
+                    
+                    // إخفاء التحميل وإظهار النتيجة
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('outputSection').style.display = 'block';
+                    
+                    // انتقال سلس للنتيجة
+                    document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+                    
+                } catch (error) {
+                    document.getElementById('loading').style.display = 'none';
+                    alert('❌ حدث خطأ في توليد السكربت، يرجى المحاولة مرة أخرى');
+                }
+            }, loadingTime);
         }
 
-        // إنشاء سكربت Roblox حسب المطلوب
-        function createRobloxScript(type, description, complexity) {
-            let script = '';
+        // دالة إنشاء السكربتات المتقدمة
+        function createAdvancedRobloxScript(type, description, complexity) {
+            const timestamp = new Date().toLocaleString('ar-SA');
+            const scriptId = Math.random().toString(36).substr(2, 9).toUpperCase();
             
+            let baseScript = `--[[
+════════════════════════════════════════════════════
+🚀 سكربت Roblox Studio - مولد تلقائياً
+════════════════════════════════════════════════════
+📋 النوع: ${getTypeDisplayName(type)}
+📝 الوصف: ${description}
+🎚️ المستوى: ${getComplexityDisplayName(complexity)}
+📅 تاريخ الإنشاء: ${timestamp}
+🆔 معرف السكربت: ${scriptId}
+👨‍💻 مولد حصرياً لـ: scar201
+🔒 محمي بحقوق الطبع والنشر
+════════════════════════════════════════════════════
+--]]
+
+-- خدمات Roblox المطلوبة
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local SoundService = game:GetService("SoundService")
+local Lighting = game:GetService("Lighting")
+
+-- متغيرات أساسية
+local player = Players.LocalPlayer
+local character = player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+print("🎮 تم تحميل السكربت بنجاح - ID: ${scriptId}")
+print("👤 المستخدم: " .. player.Name)
+
+`;
+
             switch(type) {
                 case 'tool':
-                    script = generateToolScript(description, complexity);
-                    break;
+                    return baseScript + generateAdvancedToolScript(description, complexity);
                 case 'gui':
-                    script = generateGUIScript(description, complexity);
-                    break;
+                    return baseScript + generateAdvancedGUIScript(description, complexity);
                 case 'game_mechanic':
-                    script = generateGameMechanicScript(description, complexity);
-                    break;
+                    return baseScript + generateAdvancedGameMechanicScript(description, complexity);
                 case 'animation':
-                    script = generateAnimationScript(description, complexity);
-                    break;
+                    return baseScript + generateAdvancedAnimationScript(description, complexity);
                 case 'sound':
-                    script = generateSoundScript(description, complexity);
-                    break;
+                    return baseScript + generateAdvancedSoundScript(description, complexity);
                 case 'combat':
-                    script = generateCombatScript(description, complexity);
-                    break;
+                    return baseScript + generateAdvancedCombatScript(description, complexity);
                 case 'economy':
-                    script = generateEconomyScript(description, complexity);
-                    break;
+                    return baseScript + generateAdvancedEconomyScript(description, complexity);
+                case 'teleport':
+                    return baseScript + generateAdvancedTeleportScript(description, complexity);
+                case 'admin':
+                    return baseScript + generateAdvancedAdminScript(description, complexity);
                 default:
-                    script = generateGeneralScript(description, complexity);
+                    return baseScript + generateAdvancedGeneralScript(description, complexity);
             }
-            
-            return script;
         }
 
-        function generateToolScript(description, complexity) {
-            return `-- سكربت أداة مولد تلقائياً
--- الوصف: ${description}
--- المستوى: ${complexity}
--- مولد حصرياً لـ scar201
+        // مولدات السكربتات المتخصصة
+        function generateAdvancedToolScript(description, complexity) {
+            return `
+-- ═══════════════════════════════════════
+-- 🔧 سكربت الأداة المتقدم
+-- ═══════════════════════════════════════
 
 local tool = script.Parent
-local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 
--- متغيرات الأداة
-local isActivated = false
-local cooldownTime = 1
-local lastActivation = 0
-
--- وظيفة التفعيل
-tool.Activated:Connect(function()
-    local currentTime = tick()
-    if currentTime - lastActivation >= cooldownTime then
-        lastActivation = currentTime
-        
-        -- إضافة التأثيرات البصرية
-        local effect = Instance.new("Explosion")
-        effect.Position = mouse.Hit.Position
-        effect.BlastRadius = 20
-        effect.BlastPressure = 500000
-        effect.Parent = workspace
-        
-        -- إضافة صوت
-        local sound = Instance.new("Sound")
-        sound.SoundId = "rbxasset://sounds/electronicpingshort.wav"
-        sound.Volume = 0.5
-        sound.Parent = tool
-        sound:Play()
-        
-        print("تم استخدام الأداة بواسطة: " .. player.Name)
-    end
-end)
-
--- وظيفة عند حمل الأداة
-tool.Equipped:Connect(function()
-    print("تم تجهيز الأداة")
-end)
-
--- وظيفة عند إلغاء حمل الأداة
-tool.Unequipped:Connect(function()
-    print("تم إلغاء تجهيز الأداة")
-end)`;
-        }
-
-        function generateGUIScript(description, complexity) {
-            return `-- سكربت واجهة المستخدم مولد تلقائياً
--- الوصف: ${description}
--- المستوى: ${complexity}
--- مولد حصرياً لـ scar201
-
-local player = game.Players.LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
-
--- إنشاء الـ ScreenGui
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "CustomGUI"
-screenGui.Parent = playerGui
-
--- إنشاء الإطار الرئيسي
-local mainFrame = Instance.new("Frame")
-mainFrame.Name = "MainFrame"
-mainFrame.Size = UDim2.new(0, 400, 0, 300)
-mainFrame.Position = UDim2.new(0.5, -200, 0.5, -150)
-mainFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-mainFrame.BorderSizePixel = 0
-mainFrame.Parent = screenGui
-
--- إضافة تأثير مدور للإطار
-local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 10)
-corner.Parent = mainFrame
-
--- إنشاء العنوان
-local titleLabel = Instance.new("TextLabel")
-titleLabel.Name = "Title"
-titleLabel.Size = UDim2.new(1, 0, 0, 50)
-titleLabel.Position = UDim2.new(0, 0, 0, 0)
-titleLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-titleLabel.BorderSizePixel = 0
-titleLabel.Text = "واجهة مخصصة"
-titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-titleLabel.TextScaled = true
-titleLabel.Font = Enum.Font.SourceSansBold
-titleLabel.Parent = mainFrame
-
--- إضافة زر
-local actionButton = Instance.new("TextButton")
-actionButton.Name = "ActionButton"
-actionButton.Size = UDim2.new(0, 200, 0, 50)
-actionButton.Position = UDim2.new(0.5, -100, 0.5, -25)
-actionButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
-actionButton.BorderSizePixel = 0
-actionButton.Text = "اضغط هنا"
-actionButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-actionButton.TextScaled = true
-actionButton.Font = Enum.Font.SourceSansBold
-actionButton.Parent = mainFrame
-
--- وظيفة الزر
-actionButton.MouseButton1Click:Connect(function()
-    actionButton.Text = "تم الضغط!"
-    actionButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-    
-    wait(1)
-    
-    actionButton.Text = "اضغط هنا"
-    actionButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
-end)
-
--- إضافة زر إغلاق
-local closeButton = Instance.new("TextButton")
-closeButton.Name = "CloseButton"
-closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Position = UDim2.new(1, -35, 0, 5)
-closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-closeButton.BorderSizePixel = 0
-closeButton.Text = "X"
-closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-closeButton.TextScaled = true
-closeButton.Font = Enum.Font.SourceSansBold
-closeButton.Parent = mainFrame
-
-closeButton.MouseButton1Click:Connect(function()
-    screenGui:Destroy()
-end)`;
-        }
-
-        function generateGameMechanicScript(description, complexity) {
-            return `-- سكربت آلية لعبة مولد تلقائياً
--- الوصف: ${description}
--- المستوى: ${complexity}
--- مولد حصرياً لـ scar201
-
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
-local player = Players.LocalPlayer
-local character = player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
--- متغيرات اللعبة
-local gameData = {
-    score = 0,
-    level = 1,
-    health = 100,
-    experience = 0
+-- إعدادات الأداة
+local toolConfig = {
+    damage = ${complexity === 'expert' ? '50' : complexity === 'advanced' ? '35' : '20'},
+    cooldown = ${complexity === 'simple' ? '2' : '1'},
+    range = ${complexity === 'expert' ? '100' : '50'},
+    effects = true,
+    sounds = true,
+    particles = ${complexity !== 'simple' ? 'true' : 'false'}
 }
 
--- وظيفة تحديث النقاط
-function updateScore(points)
-    gameData.score = gameData.score + points
-    print("النقاط الحالية: " .. gameData.score)
-    
-    -- فحص رفع المستوى
-    if gameData.score >= gameData.level * 100 then
-        levelUp()
-    end
-end
-
--- وظيفة رفع المستوى
-function levelUp()
-    gameData.level = gameData.level + 1
-    gameData.health = gameData.health + 20
-    
-    -- تأثير بصري لرفع المستوى
-    local effect = Instance.new("Explosion")
-    effect.Position = character.HumanoidRootPart.Position
-    effect.BlastRadius = 30
-    effect.BlastPressure = 0
-    effect.Parent = workspace
-    
-    print("تهانينا! وصلت للمستوى: " .. gameData.level)
-end
-
--- نظام الخبرة
-function gainExperience(exp)
-    gameData.experience = gameData.experience + exp
-    print("اكتسبت " .. exp .. " نقطة خبرة")
-    
-    if gameData.experience >= 50 then
-        gameData.experience = gameData.experience - 50
-        updateScore(25)
-    end
-end
-
--- مراقبة لمس الأجزاء
-function onPartTouched(hit, part)
-    local humanoidHit = hit.Parent:FindFirstChild("Humanoid")
-    if humanoidHit and hit.Parent == character then
-        gainExperience(10)
-        part:Destroy()
-    end
-end
-
--- إنشاء عناصر قابلة للجمع
-function createCollectible()
-    local part = Instance.new("Part")
-    part.Name = "Collectible"
-    part.Size = Vector3.new(2, 2, 2)
-    part.Material = Enum.Material.Neon
-    part.BrickColor = BrickColor.Random()
-    part.Position = Vector3.new(math.random(-50, 50), 10, math.random(-50, 50))
-    part.Parent = workspace
-    
-    part.Touched:Connect(function(hit)
-        onPartTouched(hit, part)
-    end)
-end
-
--- إنشاء عناصر كل 5 ثوان
-spawn(function()
-    while true do
-        wait(5)
-        createCollectible()
-    end
-end)
-
-print("تم تفعيل آلية اللعبة!")`;
-        }
-
-        function generateAnimationScript(description, complexity) {
-            return `-- سكربت الحركة والتحريك مولد تلقائياً
--- الوصف: ${description}
--- المستوى: ${complexity}
--- مولد حصرياً لـ scar201
-
-local TweenService = game:GetService("TweenService")
-local RunService = game:GetService("RunService")
-local Players = game:GetService("Players")
-
-local player = Players.LocalPlayer
-local character = player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
--- متغيرات الحركة
-local isAnimating = false
-local animationSpeed = 1
-
--- إنشاء الحركة المخصصة
-function createCustomAnimation(targetPart, endPosition, duration)
-    local tweenInfo = TweenInfo.new(
-        duration,
-        Enum.EasingStyle.Sine,
-        Enum.EasingDirection.InOut,
-        0,
-        false,
-        0
-    )
-    
-    local tween = TweenService:Create(targetPart, tweenInfo, {Position = endPosition})
-    return tween
-end
-
--- حركة دورانية
-function rotateObject(object, rotations, duration)
-    local tweenInfo = TweenInfo.new(
-        duration,
-        Enum.EasingStyle.Linear,
-        Enum.EasingDirection.InOut,
-        rotations,
-        false,
-        0
-    )
-    
-    local tween = TweenService:Create(object, tweenInfo, {
-        Rotation = object.Rotation + Vector3.new(0, 360 * rotations, 0)
-    })
-    
-    tween:Play()
-end
-
--- حركة نابضة
-function pulseAnimation(object, scale, duration)
-    local originalSize = object.Size
-    
-    local tweenInfo = TweenInfo.new(
-        duration / 2,
-        Enum.EasingStyle.Sine,
-        Enum.EasingDirection.InOut,
-        0,
-        true,
-        0
-    )
-    
-    local tween = TweenService:Create(object, tweenInfo, {
-        Size = originalSize * scale
-    })
-    
-    tween:Play()
-end
-
--- حركة تموجية
-function createWaveEffect(startPosition, amplitude, frequency)
-    local part = Instance.new("Part")
-    part.Name = "WaveEffect"
-    part.Size = Vector3.new(1, 1, 1)
-    part.Material = Enum.Material.Neon
-    part.BrickColor = BrickColor.new("Bright blue")
-    part.Position = startPosition
-    part.Parent = workspace
-    
-    local startTime = tick()
-    local connection
-    
-    connection = RunService.Heartbeat:Connect(function()
-        local currentTime = tick() - startTime
-        local yOffset = math.sin(currentTime * frequency) * amplitude
-        part.Position = startPosition + Vector3.new(0, yOffset, 0)
-        
-        -- إزالة التأثير بعد 10 ثوان
-        if currentTime > 10 then
-            connection:Disconnect()
-            part:Destroy()
-        end
-    end)
-end
-
--- تفعيل الحركات عند الضغط على مفاتيح
-local UserInputService = game:GetService("UserInputService")
-
-UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end
-    
-    if input.KeyCode == Enum.KeyCode.Q then
-        -- حركة القفز المخصص
-        if character and character.HumanoidRootPart and not isAnimating then
-            isAnimating = true
-            local rootPart = character.HumanoidRootPart
-            local jumpHeight = rootPart.Position + Vector3.new(0, 50, 0)
-            
-            local tween = createCustomAnimation(rootPart, jumpHeight, 1)
-            tween:Play()
-            
-            tween.Completed:Connect(function()
+-- متغيرات التحكم
+local isEquipped = false
